@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { supabase } from "../supabasePrivate";
-import { Function, } from "../config/function";
+import { Function,Encryptor } from "../config/function";
 const Login = () => {
 
   useEffect(() => {
@@ -43,8 +43,7 @@ const Login = () => {
         return;
       }
 
-      localStorage.setItem("user", JSON.stringify(data));
-
+      localStorage.setItem("user", Encryptor.encrypt( JSON.stringify(data))); // mã hóa thông tin 
       Function.showMessage("Thành công", "Đăng nhập thành công", "success");
       setTimeout(() => {
         window.location.href = "/";

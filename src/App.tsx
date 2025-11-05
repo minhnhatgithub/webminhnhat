@@ -4,8 +4,6 @@ import Home from "./Home";
 //@ts-ignore
 import Layout from "./Layout";
 //@ts-ignore
-import Trang1 from "./Trang1";
-//@ts-ignore
 import Login from "./public/login";
 //@ts-ignore
 import Register from "./public/register";
@@ -17,8 +15,6 @@ import ListProduct from "./ListProduct.js";
 // @ts-ignore
 import ListProducts_SP from "./ListProducts_SP.js";
 
-//@ts-ignore
-import Chitietsanpham from "./Chitietsanpham";
 
 //@ts-ignore
 import ProductDetail from "./ProductDetail";
@@ -35,11 +31,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<ListProducts_SP />} />
-          <Route path="trang1" element={<Trang1 />} />
           <Route path="trang2" element={<Trang2 />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="sanpham/:id" element={<Chitietsanpham />} />
           <Route path="detail/:id" element={<ProductDetail />} />
         </Route>
           <Route path="admin" element={<Admindashboard />} />

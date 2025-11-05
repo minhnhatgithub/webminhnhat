@@ -45,12 +45,8 @@ const Register = () => {
 
           if (error) {
             console.error("Lỗi đăng nhập:", error.message);
-            Swal.fire({
-              title: 'Lỗi!',
-              text: 'Đăng nhập thất bại!',
-              icon: 'warning',
-              confirmButtonText: 'Đóng'
-            })
+            Function.showMessage("Đăng ký thất bại!", error.message, "error");
+
             return;
           }
 

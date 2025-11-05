@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Function,Encryptor } from "../config/function";
 const MenuBox = () => {
   const [user, setUser] = useState(null);
   const [hoverUser, setHoverUser] = useState(false); // quản lý hover
@@ -7,7 +7,7 @@ const MenuBox = () => {
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      setUser(JSON.parse(Encryptor.decrypt(savedUser)));
     }
   }, []);
 

@@ -41,15 +41,34 @@ export const Function = {
       confirmButtonText: "Đóng",
     });
   },
+
+  isLogin: () => {
+    const v = localStorage.getItem("user");
+    if (!v) {
+      return false;
+    }
+    return true;
+  },
+  isAdmin: () => {
+    const v = localStorage.getItem("user");
+    if (!v) {
+      return false;
+    }
+    if(JSON.parse(Encryptor.decrypt(v)).level === 1){
+      return true;
+    }
+  }
 };
 
 export const Encryptor = {
   encrypt(text) {
-    return CryptoJS.AES.encrypt(text, this.privateKey).toString();
+    if (!text) return "";
+    return CryptoJS.AES.encrypt(text, privateKey).toString();
   },
   decrypt(cipherText) {
+    if (!cipherText) return "";
     try {
-      const bytes = CryptoJS.AES.decrypt(cipherText, this.privateKey);
+      const bytes = CryptoJS.AES.decrypt(cipherText, privateKey);
       const decrypted = bytes.toString(CryptoJS.enc.Utf8);
       return decrypted || null;
     } catch (e) {
