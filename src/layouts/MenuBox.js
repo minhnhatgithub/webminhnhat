@@ -90,7 +90,7 @@ const MenuBox = () => {
               onMouseLeave={() => setHoverUser(false)}
             >
               <a
-                href="doanh-nghiep"
+
                 style={{ textDecoration: "none", color: "#535961", fontWeight: "bold", cursor: "pointer" }}
               >
                 {user.username} - {(user.cost ?? 0).toLocaleString("vi-VN")}VNĐ

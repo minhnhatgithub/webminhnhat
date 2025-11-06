@@ -102,6 +102,7 @@ body {
 }
 
 .table-title {
+      margin: 0; /* bỏ khoảng cách mặc định của h2 */
     margin-bottom: 16px;
     color: #111827;
     font-size: 20px;
@@ -176,3 +177,31 @@ body {
   .home-btn:active {
     background-color: #92c246; /* Màu khi bấm */
   }
+
+  .table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* căn giữa theo chiều dọc */
+  margin-bottom: 15px;
+}
+
+.table-title {
+  margin: 0; /* bỏ khoảng cách mặc định của h2 */
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
