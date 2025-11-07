@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { supabase } from "../supabasePrivate";
-import { Function } from "../config/function";
+import { Function,Encryptor } from "../config/function";
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +51,7 @@ const Register = () => {
           }
 
           Function.showMessage("Thành công", "Đăng ký thành công", "success");
-          localStorage.setItem("user", JSON.stringify(data));
+           localStorage.setItem("user", Encryptor.encrypt( JSON.stringify(data))); 
           window.location.href = "/";
         }
       }
