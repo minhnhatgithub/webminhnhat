@@ -1,16 +1,11 @@
 import "./styles.css";
 //@ts-ignore
-import Home from "./Home";
-//@ts-ignore
 import Layout from "./Layout";
 //@ts-ignore
 import Login from "./public/login";
 //@ts-ignore
 import Register from "./public/register";
-// @ts-ignore
-import Trang2 from "./Trang2";
-// @ts-ignore
-import ListProduct from "./ListProduct.js";
+
 
 // @ts-ignore
 import ListProducts_SP from "./ListProducts_SP.js";
@@ -31,7 +26,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<ListProducts_SP />} />
-          <Route path="trang2" element={<Trang2 />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="detail/:id" element={<ProductDetail />} />
