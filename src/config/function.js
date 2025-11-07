@@ -1,6 +1,6 @@
 import CryptoJS from "crypto-js";
 import Swal from "sweetalert2";
-const privateKey = "minhnhat_123456";
+const privateKey = "#=minhnhat206=#"; // ko đc key này để tránh lộ data
 export const Function = {
   base_Url: () => `${window.location.protocol}//${window.location.host}/`,
   stringToMD5: (str) => CryptoJS.MD5(str).toString(),
