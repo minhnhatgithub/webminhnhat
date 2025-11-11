@@ -7,7 +7,8 @@ const Footer = () => {
         <div class="container_main">
           <div class="logo_footer">
             <a href="">
-              <img src="https://photo.gameladeshop.com/cdn-cgi/imagedelivery/FtoMAR4WjhAfUHALpsM8nA/d0344a83-e092-4e6d-b401-eaee723cd200/w=1277,h=481" alt="Logo" />
+                
+              <img style={{width: "80%"}} src="https://photo.gameladeshop.com/cdn-cgi/imagedelivery/FtoMAR4WjhAfUHALpsM8nA/d0344a83-e092-4e6d-b401-eaee723cd200/w=1277,h=481" alt="Logo" />
             </a>
           </div>
           <div class="content_footer">

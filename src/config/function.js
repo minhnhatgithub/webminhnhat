@@ -42,22 +42,37 @@ export const Function = {
     });
   },
 
-  isLogin: () => {
-    const v = localStorage.getItem("user");
-    if (!v) {
-      return false;
-    }
-    return true;
-  },
+isLogin: () => {
+  const v = localStorage.getItem("user");
+  if (!v) {
+    return false;
+  }
+  return true;
+},
   isAdmin: () => {
     const v = localStorage.getItem("user");
     if (!v) {
       return false;
     }
-    if(JSON.parse(Encryptor.decrypt(v)).level === 1){
+    if (JSON.parse(Encryptor.decrypt(v)).level === 1) {
       return true;
     }
+  },
+
+  getUser: (str) => {
+  const v = localStorage.getItem("user");
+  if (!v) {
+    return "";
   }
+  try {
+    const data = JSON.parse(Encryptor.decrypt(v));
+    return data[str] || "";
+  } catch (e) {
+    console.error("Lỗi khi giải mã user:", e);
+    return "";
+  }
+},
+
 };
 
 export const Encryptor = {

@@ -226,16 +226,26 @@ export default function Admindashboard() {
         loadDashboardData();
     }, []);
 
-    return (
+ return (
         <div className="dashboard-page">
-            <div className="top-bar">
-                <button
-                    className="home-btn"
-                    onClick={() => (window.location.href = Function.base_Url())}
-                >
-                    ← Trang chủ
-                </button>
-            </div>
+            
+            {/* ========== NAVIGATION BAR (NAVBAR) ========== */}
+            <nav className="navbar">
+                <div className="navbar-brand" style={{color: "black"}}>Trang quản trị</div>
+                <div className="navbar-links">
+                    <button
+                        className="home-btn"
+                        onClick={() => (window.location.href = Function.base_Url())}
+                    >
+                        ← Trang chủ
+                    </button>
+                    {/* Thêm các liên kết/nút khác cho Navbar tại đây */}
+                    {/* <a href="#analytics" className="nav-link">Phân tích</a> */}
+                    {/* <a href="#settings" className="nav-link">Cài đặt</a> */}
+                    <div className="userProfile"  style={{color: "white"} }>{Function.getUser("username")}</div>
+                </div>
+            </nav>
+            {/* --- */}
 
             {/* ========== HEADER CARDS ========== */}
             <div className="dashboard-container">
@@ -270,6 +280,8 @@ export default function Admindashboard() {
                 </div>
             </div>
 
+            {/* --- */}
+
             {/* ========== PRODUCT TABLE ========== */}
             <div className="table-container">
                 <div className="table-header">
@@ -294,10 +306,10 @@ export default function Admindashboard() {
                         {Array.isArray(products) && products.length > 0 ? (
                             products.map((p, i) => (
                                 <tr key={p.id}>
-                                    <td>{i++}</td>
+                                    <td>{i + 1}</td> {/* Đã sửa i++ thành i + 1 để chỉ số đúng */}
                                     <td>{p.title}</td>
                                     <td>{p.price.toLocaleString("vi-VN")}₫</td>
-                                    <td><img src={p.image} style={{ width: "50%" }} alt="" srcset="" /></td>
+                                    <td><img src={p.image} style={{ width: "50%" }} alt={p.title} /></td>
                                     <td>
                                         <textarea
                                             value={p.description || ""}
@@ -306,27 +318,33 @@ export default function Admindashboard() {
                                             rows={3}
                                         />
                                     </td>
-
-                                    <td><button type="button"
-                                        onClick={() => deleteProduct(p.id)}
-                                        style={{ color: "#ffff", backgroundColor: "#dc3545", border: "none", borderRadius: "15px", width: "50px", height: "30px" }}
-                                    >Xóa</button>
-
-                                        <button onClick={() => editProduct(p.id, p.title, p.price, p.image, p.category, p.description)} style={{ color: "#ffff", backgroundColor: "#007bff", marginLeft: "5px", border: "none", borderRadius: "15px", width: "50px", height: "30px" }} type="button" class="btn btn-outline-primary">Chỉnh</button>
+                                    <td>
+                                        <button 
+                                            type="button"
+                                            onClick={() => deleteProduct(p.id)}
+                                            style={{ color: "#ffff", backgroundColor: "#dc3545", border: "none", borderRadius: "15px", width: "50px", height: "30px" }}
+                                        >
+                                            Xóa
+                                        </button>
+                                        <button 
+                                            onClick={() => editProduct(p.id, p.title, p.price, p.image, p.category, p.description)} 
+                                            style={{ color: "#ffff", backgroundColor: "#007bff", marginLeft: "5px", border: "none", borderRadius: "15px", width: "50px", height: "30px" }} 
+                                            type="button" 
+                                            className="btn btn-outline-primary"
+                                        >
+                                            Chỉnh
+                                        </button>
                                     </td>
-
-
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={5} style={{ textAlign: "center" }}>
+                                <td colSpan={6} style={{ textAlign: "center" }}> {/* Đã sửa colSpan thành 6 */}
                                     Đang tải sản phẩm...
                                 </td>
                             </tr>
                         )}
                     </tbody>
-
                 </table>
             </div>
         </div>

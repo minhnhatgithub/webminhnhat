@@ -205,3 +205,48 @@ body {
 .add-btn:hover {
   background-color: #0056b3;
 }
+/* Styling cho Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #ffff; /* Màu nền tối */
+    color: white; /* Chữ màu trắng */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Khoảng cách với phần nội dung bên dưới */
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Nút Trang chủ đã được tích hợp vào Navbar */
+.home-btn {
+    background-color: #5cb85c; /* Màu xanh lá cây */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.home-btn:hover {
+    background-color: #4cae4c;
+}
+
+.userProfile{
+    background-color: #007bff;
+    margin-left: 5px;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
